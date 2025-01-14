@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "shopping crawling",
+    "version": "1.0",
+    "description": "Show lowest price for a product on shopping sites.",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+    "https://*.gmarket.co.kr/*",
+    "https://*.auction.co.kr/*",
+    "https://*.coupang.com/*",
+    "https://*.11st.co.kr/*",
+    "https://search.shopping.naver.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+        }
+    },
+    "content_scripts": [
+        {
+        "matches": [
+        "https://*.gmarket.co.kr/*",
+        "https://*.auction.co.kr/*",
+        "https://*.coupang.com/*",
+        "https://*.11st.co.kr/*",
+        "https://search.shopping.naver.com/*"
+        ],
+        "js": ["content.js"]
+        }
+    ]
+}
